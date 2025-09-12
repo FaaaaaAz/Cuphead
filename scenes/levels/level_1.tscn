@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://0uhlmvy4k7ri"]
+
+[ext_resource type="Texture2D" uid="uid://ds6mqkvdo61nf" path="res://icon.svg" id="1_nsrm0"]
+[ext_resource type="PackedScene" uid="uid://bmqoi6gpmfjoc" path="res://scenes/player/player.tscn" id="2_x42e6"]
+[ext_resource type="PackedScene" uid="uid://d00p0a00l6411" path="res://scenes/enemies/boss.tscn" id="3_6761a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
+size = Vector2(1150.5, 99)
+
+[node name="Level1" type="Node2D"]
+position = Vector2(4, 14)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(579.75, 598.5)
+shape = SubResource("RectangleShape2D_sk5k4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(577.75, 600)
+scale = Vector2(8.98828, 0.78125)
+texture = ExtResource("1_nsrm0")
+
+[node name="Player" parent="." instance=ExtResource("2_x42e6")]
+position = Vector2(167, 537)
+
+[node name="Boss" parent="." instance=ExtResource("3_6761a")]
+position = Vector2(1046, 484)

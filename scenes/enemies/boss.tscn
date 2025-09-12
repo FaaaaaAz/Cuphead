@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d00p0a00l6411"]
+
+[ext_resource type="Script" uid="uid://ca3q28cjlqksy" path="res://scripts/enemies/boss.gd" id="1_3uc6t"]
+[ext_resource type="Texture2D" uid="uid://ds6mqkvdo61nf" path="res://icon.svg" id="2_ub7yk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ian0n"]
+radius = 62.0
+height = 126.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uc6t"]
+size = Vector2(119.5, 103)
+
+[node name="Boss" type="CharacterBody2D" groups=["boss"]]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_3uc6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ub7yk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ian0n")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="HurtArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_3uc6t")
