@@ -1,0 +1,326 @@
+[gd_scene load_steps=52 format=3 uid="uid://dui5sycb35xbs"]
+
+[ext_resource type="Texture2D" uid="uid://bwkc37cud0sli" path="res://assets/art/world/Ocean/Left/world1_ocean_01.png" id="1_lwrri"]
+[ext_resource type="Texture2D" uid="uid://ck51ls0wq4wwo" path="res://assets/art/world/Small Island/Lighthouse & Bouy/world1_lighthouse.png" id="2_knalu"]
+[ext_resource type="Texture2D" uid="uid://fdftyxaq82x6" path="res://assets/art/world/Small Island/Lighthouse & Bouy/world1_buoy.png" id="3_ky35c"]
+[ext_resource type="Texture2D" uid="uid://dj6gpyfpweiri" path="res://assets/art/world/Small Island/Main/world1_small_island_main.png" id="4_ce2n8"]
+[ext_resource type="Texture2D" uid="uid://cpdkqru6u6esa" path="res://assets/art/world/Small Island/Dock & Boat/world1_boat.png" id="5_6qcik"]
+[ext_resource type="Texture2D" uid="uid://df366awom7dkq" path="res://assets/art/world/Small Island/Dock & Boat/world1_dock.png" id="6_lc3nf"]
+[ext_resource type="Texture2D" uid="uid://dg0byesancfbr" path="res://assets/art/world/Ocean/Right/world1_ocean_02.png" id="7_pm5rc"]
+[ext_resource type="Texture2D" uid="uid://bhyqydkmnicdj" path="res://assets/art/world/Large Island/Left/Main/world1_large_island_main_01.png" id="8_5rtui"]
+[ext_resource type="Texture2D" uid="uid://blnjfqahwmeta" path="res://assets/art/world/Large Island/Left/Main/Topper/world1_large_island_top_shopSmallCliff.png" id="9_c8aku"]
+[ext_resource type="Texture2D" uid="uid://ckbwuc1kx7nxu" path="res://assets/art/world/Small Island/Main Bridge/world1_bridge_main.png" id="10_dp141"]
+[ext_resource type="Texture2D" uid="uid://dxpcbaffphc0" path="res://assets/art/world/Large Island/Left/Tree Island/world1_tree_island.png" id="11_25gi8"]
+[ext_resource type="Texture2D" uid="uid://cpofm3j1w4jq6" path="res://assets/art/world/Large Island/Left/Stairs/Botanic Panic/world1_stairs_veggie.png" id="12_55l4l"]
+[ext_resource type="Texture2D" uid="uid://do56mbhryubol" path="res://assets/art/world/Large Island/Left/Bridges/Forest Follies/world1_bridge_level_1-1.png" id="13_opa0q"]
+[ext_resource type="Texture2D" uid="uid://dgbmpwnexoow" path="res://assets/art/world/Large Island/Left/Stairs/Ruse of an Ooze/Topper/Toppers/Right/world1_stairs_slime.png" id="14_wusjf"]
+[ext_resource type="Texture2D" uid="uid://cfp5dpaahnot5" path="res://assets/art/world/Large Island/Right/Main/world1_large_island_main_02.png" id="15_b4gci"]
+[ext_resource type="Texture2D" uid="uid://bxn8e5pgtjiib" path="res://assets/art/world/Large Island/Left/Bridges/Clip Joint Calamity/world1_bridge_frogs.png" id="16_qpvw7"]
+[ext_resource type="Texture2D" uid="uid://keyru2454sll" path="res://assets/art/world/Large Island/Left/Stairs/Treetop Trouble/world1_stairs_level_1-2.png" id="17_jjfcv"]
+[ext_resource type="Texture2D" uid="uid://cjhe8phcrgpw4" path="res://assets/art/world/Large Island/Right/Stairs/Die House/world1_stairs_king_dice.png" id="18_xeeh3"]
+[ext_resource type="Texture2D" uid="uid://8y31jl5wwcih" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Porkrind's Shop.png" id="19_ce2n8"]
+[ext_resource type="Script" uid="uid://dul3iapk0b3gx" path="res://scripts/world/shop.gd" id="20_6qcik"]
+[ext_resource type="Texture2D" uid="uid://dgalsklnnc4b3" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Botanic Panic.png" id="21_lc3nf"]
+[ext_resource type="Script" uid="uid://ge6m22garv3v" path="res://scripts/world/botanic_panic.gd" id="22_opa0q"]
+[ext_resource type="Texture2D" uid="uid://3gg55fnry3vk" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Home Sweet Home.png" id="23_wusjf"]
+[ext_resource type="Script" uid="uid://56xovxlugai6" path="res://scripts/world/home.gd" id="24_b4gci"]
+[ext_resource type="Texture2D" uid="uid://bg8egh73e511g" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Clip Joint Calamity.png" id="25_qpvw7"]
+[ext_resource type="Script" uid="uid://cdhcu7wh8iouj" path="res://scripts/world/clip_joint_calamity.gd" id="26_jjfcv"]
+[ext_resource type="Texture2D" uid="uid://crmxutfg8s0j8" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Ruse of an Ooze.png" id="27_xeeh3"]
+[ext_resource type="Script" uid="uid://cm5m80lafkqs" path="res://scripts/world/ruse_of_an_ooze.gd" id="28_d14v3"]
+[ext_resource type="Texture2D" uid="uid://qdfeaa4cwkh7" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Shmup Tutorial.png" id="29_5o1f1"]
+[ext_resource type="Script" uid="uid://bsp2ffmw8tqv2" path="res://scripts/world/shump_tutorial.gd" id="30_1dyvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm5rc"]
+atlas = ExtResource("19_ce2n8")
+region = Rect2(4, 29, 253, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rtui"]
+atlas = ExtResource("19_ce2n8")
+region = Rect2(263, 29, 253, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8aku"]
+atlas = ExtResource("19_ce2n8")
+region = Rect2(522, 29, 253, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp141"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pm5rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rtui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8aku")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25gi8"]
+atlas = ExtResource("21_lc3nf")
+region = Rect2(2, 4, 307, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55l4l"]
+atlas = ExtResource("21_lc3nf")
+region = Rect2(314, 4, 307, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wusjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25gi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55l4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrlh5"]
+atlas = ExtResource("23_wusjf")
+region = Rect2(5, 6, 270, 349)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s53ck"]
+atlas = ExtResource("23_wusjf")
+region = Rect2(283, 6, 270, 349)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs0m8"]
+atlas = ExtResource("23_wusjf")
+region = Rect2(561, 6, 270, 349)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10qst"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrlh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s53ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs0m8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja7wy"]
+atlas = ExtResource("25_qpvw7")
+region = Rect2(3, 4, 350, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x6c4"]
+atlas = ExtResource("25_qpvw7")
+region = Rect2(360, 4, 350, 230)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5x4e"]
+atlas = ExtResource("25_qpvw7")
+region = Rect2(717, 4, 350, 230)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suta3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja7wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x6c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5x4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_worup"]
+atlas = ExtResource("27_xeeh3")
+region = Rect2(2, 6, 247, 328)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5hfp"]
+atlas = ExtResource("27_xeeh3")
+region = Rect2(256, 6, 247, 328)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s41jk"]
+atlas = ExtResource("27_xeeh3")
+region = Rect2(510, 6, 247, 328)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bt2ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_worup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5hfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s41jk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msxw1"]
+atlas = ExtResource("29_5o1f1")
+region = Rect2(4, 3, 78, 122)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jet30"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msxw1")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="WorldMap" type="Node2D"]
+
+[node name="World1Ocean01" type="Sprite2D" parent="."]
+position = Vector2(734, 562)
+scale = Vector2(0.942407, 0.80127)
+texture = ExtResource("1_lwrri")
+
+[node name="World1Lighthouse" type="Sprite2D" parent="."]
+position = Vector2(131, 98)
+texture = ExtResource("2_knalu")
+
+[node name="World1Buoy" type="Sprite2D" parent="."]
+position = Vector2(-37, 325)
+texture = ExtResource("3_ky35c")
+
+[node name="World1SmallIslandMain" type="Sprite2D" parent="."]
+position = Vector2(678.5, 436)
+scale = Vector2(0.849838, 0.728477)
+texture = ExtResource("4_ce2n8")
+
+[node name="World1Boat" type="Sprite2D" parent="."]
+position = Vector2(249, 713)
+texture = ExtResource("5_6qcik")
+
+[node name="World1Dock" type="Sprite2D" parent="."]
+position = Vector2(340.25, 703.25)
+scale = Vector2(0.828947, 0.741304)
+texture = ExtResource("6_lc3nf")
+
+[node name="World1Ocean02" type="Sprite2D" parent="."]
+position = Vector2(2457, 562)
+scale = Vector2(0.923931, 0.800781)
+texture = ExtResource("7_pm5rc")
+
+[node name="World1LargeIslandMain01" type="Sprite2D" parent="."]
+position = Vector2(1685.5, 475.5)
+scale = Vector2(0.841129, 0.722399)
+texture = ExtResource("8_5rtui")
+
+[node name="World1LargeIslandTopShopSmallCliff" type="Sprite2D" parent="."]
+position = Vector2(2970, 698)
+texture = ExtResource("9_c8aku")
+
+[node name="World1BridgeMain" type="Sprite2D" parent="."]
+position = Vector2(1242.75, 503)
+scale = Vector2(0.780263, 0.615789)
+texture = ExtResource("10_dp141")
+
+[node name="World1TreeIsland" type="Sprite2D" parent="."]
+position = Vector2(1938, 1115)
+scale = Vector2(0.889285, 0.928241)
+texture = ExtResource("11_25gi8")
+
+[node name="World1StairsVeggie" type="Sprite2D" parent="."]
+position = Vector2(1691, 886)
+scale = Vector2(0.624214, 0.546407)
+texture = ExtResource("12_55l4l")
+
+[node name="World1BridgeLevel1-1" type="Sprite2D" parent="."]
+position = Vector2(1879.63, 414.125)
+scale = Vector2(0.878178, 0.599765)
+texture = ExtResource("13_opa0q")
+
+[node name="World1StairsSlime" type="Sprite2D" parent="."]
+position = Vector2(1600, 145)
+scale = Vector2(0.705479, 0.668803)
+texture = ExtResource("14_wusjf")
+
+[node name="World1LargeIslandMain02" type="Sprite2D" parent="."]
+position = Vector2(2722.25, 491)
+scale = Vector2(0.833468, 0.720165)
+texture = ExtResource("15_b4gci")
+
+[node name="World1BridgeFrogs" type="Sprite2D" parent="."]
+position = Vector2(2161.5, 761)
+scale = Vector2(0.603571, 0.538461)
+texture = ExtResource("16_qpvw7")
+
+[node name="World1StairsLevel1-2" type="Sprite2D" parent="."]
+position = Vector2(2192, 334)
+scale = Vector2(0.556452, 0.483728)
+texture = ExtResource("17_jjfcv")
+
+[node name="World1BridgeLevel1-2" type="Sprite2D" parent="."]
+position = Vector2(2379, -6.5)
+scale = Vector2(0.745762, 0.474178)
+texture = ExtResource("13_opa0q")
+
+[node name="World1StairsSlime2" type="Sprite2D" parent="."]
+position = Vector2(2648.25, 128.875)
+scale = Vector2(0.818493, 0.651709)
+texture = ExtResource("14_wusjf")
+
+[node name="World1StairsKingDice" type="Sprite2D" parent="."]
+position = Vector2(2797.38, 527.188)
+scale = Vector2(0.57887, 0.554144)
+texture = ExtResource("18_xeeh3")
+
+[node name="Shop" type="AnimatedSprite2D" parent="."]
+position = Vector2(1816, 547.733)
+scale = Vector2(0.790514, 0.678434)
+sprite_frames = SubResource("SpriteFrames_dp141")
+animation = &"new_animation"
+frame_progress = 0.675207
+script = ExtResource("20_6qcik")
+
+[node name="BotanicPanic" type="AnimatedSprite2D" parent="."]
+position = Vector2(1407, 865.5)
+scale = Vector2(0.710098, 0.636719)
+sprite_frames = SubResource("SpriteFrames_wusjf")
+frame_progress = 0.320347
+script = ExtResource("22_opa0q")
+
+[node name="Home" type="AnimatedSprite2D" parent="."]
+position = Vector2(529.5, 257.5)
+scale = Vector2(0.855555, 0.753582)
+sprite_frames = SubResource("SpriteFrames_10qst")
+frame_progress = 0.495733
+script = ExtResource("24_b4gci")
+
+[node name="ClipJointCalamity" type="AnimatedSprite2D" parent="."]
+position = Vector2(1747, 1108)
+scale = Vector2(0.742857, 0.686956)
+sprite_frames = SubResource("SpriteFrames_suta3")
+frame_progress = 0.305897
+script = ExtResource("26_jjfcv")
+
+[node name="RuseOfAnOoze" type="AnimatedSprite2D" parent="."]
+position = Vector2(1741, 209)
+scale = Vector2(0.701416, 0.719512)
+sprite_frames = SubResource("SpriteFrames_bt2ag")
+frame_progress = 0.846677
+script = ExtResource("28_d14v3")
+
+[node name="ShumpTutorial" type="AnimatedSprite2D" parent="."]
+position = Vector2(2246, -92)
+scale = Vector2(0.794873, 0.786885)
+sprite_frames = SubResource("SpriteFrames_jet30")
+animation = &"new_animation"
+script = ExtResource("30_1dyvq")
