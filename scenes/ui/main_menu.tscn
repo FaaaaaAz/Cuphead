@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cjlhcx8qkl5kv"]
+[gd_scene load_steps=39 format=3 uid="uid://cjlhcx8qkl5kv"]
 
 [ext_resource type="Texture2D" uid="uid://bngmqjennrp6" path="res://assets/art/main_menu/Background/title_screen_background.png" id="1_j4d8q"]
 [ext_resource type="Texture2D" uid="uid://cjr5gr44cvjqi" path="res://assets/art/main_menu/Cuphead and Mugman/cuphead_title_screen_0001.png" id="2_qpknu"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cjsvg7ax3woam" path="res://assets/art/main_menu/Cuphead and Mugman/cuphead_title_screen_0033.png" id="34_f0cbm"]
 [ext_resource type="Texture2D" uid="uid://11b04hdxbo13" path="res://assets/art/main_menu/Cuphead and Mugman/cuphead_title_screen_0034.png" id="35_jpjrt"]
 [ext_resource type="Script" uid="uid://daeyorhglab3h" path="res://scripts/menu/characters.gd" id="36_qpknu"]
+[ext_resource type="Script" uid="uid://cwdfegosvqmxy" path="res://scripts/menu/main_menu.gd" id="37_main"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0td5x"]
 animations = [{
@@ -150,6 +151,7 @@ animations = [{
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("37_main")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 323)
@@ -164,6 +166,7 @@ frame_progress = 0.94043
 script = ExtResource("36_qpknu")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 382.0
 offset_top = 573.0
 offset_right = 784.0
@@ -173,4 +176,3 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 36
-text = "Presiona para empezar"
