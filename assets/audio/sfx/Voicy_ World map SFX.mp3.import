@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cephfb2u7dc2x"
+path="res://.godot/imported/Voicy_ World map SFX.mp3-226ecd35ac5428e4d4819fb2ac0e63e8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Voicy_ World map SFX.mp3"
+dest_files=["res://.godot/imported/Voicy_ World map SFX.mp3-226ecd35ac5428e4d4819fb2ac0e63e8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
