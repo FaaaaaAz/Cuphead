@@ -14,7 +14,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is CharacterBody2D:
-		print("Jugador cerca de la flor")
 		if interaction_prompt:
 			interaction_prompt.visible = true
 		player_is_near = true
@@ -25,11 +24,10 @@ func _on_body_exited(body):
 			interaction_prompt.visible = false
 		player_is_near = false
 
-func _process(delta):
+func _process(_delta):
 	if player_is_near and Input.is_action_just_pressed("ui_accept"):
 		enter_level()
 
 func enter_level():
-	print("Entrando al nivel...")
 	MusicPlayer.force_play_music("floral_fury")
 	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")

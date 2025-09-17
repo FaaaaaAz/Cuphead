@@ -1,11 +1,9 @@
-# level_hud.gd
 extends Control
 
 @onready var health_label: Label = $HealthLabel
 @onready var instructions_label: Label = $InstructionsLabel
 
 func _ready() -> void:
-	# Crear labels si no existen
 	if not health_label:
 		health_label = Label.new()
 		add_child(health_label)
@@ -18,9 +16,8 @@ func _ready() -> void:
 		instructions_label.position = Vector2(20, 50)
 		instructions_label.size = Vector2(600, 30)
 	
-	# Configurar texto inicial
 	update_instructions()
-	update_health(3) # Vida inicial del jugador
+	update_health(3)
 
 func update_instructions() -> void:
 	if instructions_label:

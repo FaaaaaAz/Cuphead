@@ -1,11 +1,9 @@
-# map_hud.gd
 extends Control
 
 @onready var level_label: Label = $LevelLabel
 @onready var instructions_label: Label = $InstructionsLabel
 
 func _ready() -> void:
-	# Crear labels si no existen
 	if not level_label:
 		level_label = Label.new()
 		add_child(level_label)
@@ -18,7 +16,6 @@ func _ready() -> void:
 		instructions_label.position = Vector2(20, 50)
 		instructions_label.size = Vector2(600, 60)
 	
-	# Configurar texto inicial
 	update_instructions()
 
 func update_instructions() -> void:

@@ -26,8 +26,6 @@ func _physics_process(delta):
 		pass 
 	else:
 		$Sprite.stop()
-		#$Sprite.frame=0
-		pass
 	
 	velocity = dir * SPEED
 	move_and_slide()
