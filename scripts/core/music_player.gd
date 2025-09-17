@@ -6,7 +6,8 @@ extends Node
 # Diccionario con tus canciones específicas
 var music_tracks = {
 	"menu_theme": preload("res://assets/audio/music/01. Don't Deal With the Devil.mp3"),
-	"map_theme": preload("res://assets/audio/music/06. Inkwell Isle One.mp3")
+	"map_theme": preload("res://assets/audio/music/06. Inkwell Isle One.mp3"),
+	"floral_fury": preload("res://assets/audio/music/13. Floral Fury.mp3")
 }
 
 # Variable para saber qué canción está sonando

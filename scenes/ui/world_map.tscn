@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dui5sycb35xbs"]
+[gd_scene load_steps=62 format=3 uid="uid://dui5sycb35xbs"]
 
 [ext_resource type="Script" uid="uid://bdwphdxmrxj8n" path="res://scripts/world/world_map.gd" id="1_b4gci"]
 [ext_resource type="Texture2D" uid="uid://bwkc37cud0sli" path="res://assets/art/world/Ocean/Left/world1_ocean_01.png" id="1_lwrri"]
@@ -215,21 +215,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dyvq"]
 radius = 53.0848
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_10qst"]
-atlas = ExtResource("36_5o1f1")
-region = Rect2(309, 1247, 295, 244)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ja7wy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_10qst")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}]
-
 [node name="WorldMap" type="Node2D"]
 script = ExtResource("1_b4gci")
 
@@ -409,24 +394,25 @@ polygon = PackedVector2Array(473, 292, 457, 314, 501, 337, 440, 360, 480, 385, 5
 
 [node name="LevelEntrance_FloralFury" type="Area2D" parent="."]
 script = ExtResource("33_d14v3")
+level_scene_path = "res://scenes/levels/level_1.tscn"
 
 [node name="Floral Fury" type="AnimatedSprite2D" parent="LevelEntrance_FloralFury"]
 position = Vector2(2207, 445)
 scale = Vector2(0.727396, 0.723881)
 sprite_frames = SubResource("SpriteFrames_1dyvq")
-frame_progress = 0.987459
+frame_progress = 0.0864038
 script = ExtResource("31_xeeh3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEntrance_FloralFury"]
 position = Vector2(2215, 445)
 shape = SubResource("CircleShape2D_1dyvq")
 
-[node name="Nivel1" type="AnimatedSprite2D" parent="LevelEntrance_FloralFury"]
-visible = false
-position = Vector2(2281.61, 378.13)
-scale = Vector2(0.328099, 0.343198)
-sprite_frames = SubResource("SpriteFrames_ja7wy")
-animation = &"new_animation"
+[node name="InteractionPrompt" type="Sprite2D" parent="LevelEntrance_FloralFury"]
+position = Vector2(2291, 367)
+scale = Vector2(0.432836, 0.416996)
+texture = ExtResource("36_5o1f1")
+region_enabled = true
+region_rect = Rect2(326.875, 1245.5, 268.312, 253.125)
 
 [node name="MapPlayer" parent="." instance=ExtResource("31_wusjf")]
 position = Vector2(581, 327)

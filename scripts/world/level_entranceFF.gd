@@ -1,32 +1,43 @@
 extends Area2D
 
-# Exportamos la ruta de la escena del nivel para poder configurarla desde el Inspector
 @export var level_scene_path: String
+@onready var interaction_prompt = $InteractionPrompt
 
-# Referencia al ícono que muestra la tecla a presionar
-@onready var interaction_prompt = $GODO
-
-# Variable para saber si el jugador está dentro del área
 var player_is_near = false
 
-# Esta función se llama cuando un cuerpo (como el jugador) entra en el área
+func _ready():
+	# Conectar las señales del Area2D
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+	
+	# Asegurar que el prompt esté oculto al inicio
+	if interaction_prompt:
+		interaction_prompt.visible = false
+
 func _on_body_entered(body):
-	# Verificamos si el cuerpo que entró es el jugador
-	# (Asumiendo que tu jugador tiene un script llamado "map_player.gd" o similar)
-	if body.name == "MapPlayer":
-		interaction_prompt.show() # Mostramos el ícono "E"
+	# Verificar si es un CharacterBody2D (el jugador) en lugar del nombre específico
+	if body is CharacterBody2D:
+		print("Jugador entró al área de ", level_scene_path)
+		if interaction_prompt:
+			interaction_prompt.visible = true
 		player_is_near = true
 
-# Esta función se llama cuando el cuerpo sale del área
 func _on_body_exited(body):
-	if body.name == "MapPlayer":
-		interaction_prompt.hide() # Ocultamos el ícono "E"
+	if body is CharacterBody2D:
+		print("Jugador salió del área")
+		if interaction_prompt:
+			interaction_prompt.visible = false
 		player_is_near = false
 
-# Se ejecuta en cada fotograma
-func _process(delta):
-	# Si el jugador está cerca y presiona la tecla de interacción...
-	if player_is_near and Input.is_action_just_pressed("ui_accept"):
-		# Por ahora, solo imprimimos un mensaje para probar
+func _input(event):
+	if player_is_near and (event.is_action_pressed("jump") or event.is_action_pressed("ui_accept")):
+		enter_level()
+
+func enter_level():
+	if level_scene_path != "" and ResourceLoader.exists(level_scene_path):
 		print("¡Entrando al nivel: ", level_scene_path)
-		# MÁS ADELANTE, AQUÍ LLAMAREMOS A LA TITLE CARD
+		# Cambiar la música antes de entrar al nivel
+		MusicPlayer.force_play_music("floral_fury")
+		get_tree().change_scene_to_file(level_scene_path)
+	else:
+		print("❌ Error: Ruta del nivel no válida: ", level_scene_path)
