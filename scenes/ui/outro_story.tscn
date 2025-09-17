@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://e0dt5jwwxndr"]
 
-[ext_resource type="PackedScene" path="res://scenes/ui/story_cinematic.tscn" id="1_story_scene"]
+[ext_resource type="PackedScene" uid="uid://b8n5k2p8q7tat" path="res://scenes/ui/story_cinematic.tscn" id="1_story_scene"]
 
 [node name="OutroStory" instance=ExtResource("1_story_scene")]
 auto_advance_time = 0.08

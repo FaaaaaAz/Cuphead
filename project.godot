@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Cuphead"
-run/main_scene="uid://einx0xywacma"
+run/main_scene="uid://cjlhcx8qkl5kv"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SceneTransition="*res://scripts/core/scene_transition.gd"
+SceneTransition="*res://scenes/ui/scene_transition.tscn"
 MusicPlayer="*res://scenes/ui/music_player.tscn"
 
 [input]

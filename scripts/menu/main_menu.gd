@@ -21,9 +21,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Detectar cuando se hace clic o presiona SPACE
-	if event.is_action_pressed("jump") and not SceneTransition.is_transitioning:
+	if event.is_action_pressed("jump"):
 		print("¡¡¡ SPACE PRESIONADO !!!")
 		print("Yendo al menú de navegación con botones...")
 		
-		# Ir al start_menu que tiene los botones funcionales
-		SceneTransition.circular_transition_to("res://scenes/ui/start_menu.tscn")
+		# Ir al start_menu directamente sin transición
+		get_tree().change_scene_to_file("res://scenes/ui/start_menu.tscn")
