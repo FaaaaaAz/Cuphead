@@ -30,9 +30,6 @@ func _process(delta):
 		enter_level()
 
 func enter_level():
-	if level_scene_path != "":
-		print("Entrando al nivel...")
-		MusicPlayer.force_play_music("floral_fury")
-		get_tree().change_scene_to_file(level_scene_path)
-	else:
-		print("Error: No hay ruta configurada")
+	print("Entrando al nivel...")
+	MusicPlayer.force_play_music("floral_fury")
+	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")

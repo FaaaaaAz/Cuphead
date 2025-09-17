@@ -236,7 +236,10 @@ func damage_effect() -> void:
 func die() -> void:
 	"""Manejar muerte del boss"""
 	current_state = State.DEAD
-	print("¡El boss ha sido derrotado!")
+	print("🥊 ¡El boss ha sido derrotado! Mostrando KNOCKOUT...")
+	
+	# ¡MOSTRAR EL KNOCKOUT!
+	KnockoutDisplay.show_knockout()
 	
 	boss_died.emit()
 	
@@ -248,7 +251,14 @@ func die() -> void:
 	if animated_sprite:
 		disconnect_animation_signals()  # Limpiar conexiones previas
 		animated_sprite.play("death")
-		# Conectar para efectos adicionales cuando termine la animación de muerte
+	
+	# Esperar a que termine el knockout y luego hacer la transición
+	await get_tree().create_timer(4.0).timeout
+	print("✅ KNOCKOUT terminado, regresando al mapa...")
+	SceneTransition.change_scene("res://scenes/ui/world_map.tscn")
+	
+	# Conectar para efectos adicionales cuando termine la animación de muerte
+	if animated_sprite:
 		animated_sprite.animation_finished.connect(_on_death_animation_finished)
 
 func _on_death_animation_finished() -> void:

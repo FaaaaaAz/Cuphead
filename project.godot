@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneTransition="*res://scenes/ui/scene_transition.tscn"
 MusicPlayer="*res://scenes/ui/music_player.tscn"
+KnockoutDisplay="*res://scenes/ui/knockout_display.tscn"
 
 [input]
 
