@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://0nmkmd0sojhm" path="res://assets/art/level/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Boss Stages - Ruse of an Ooze.png" id="1_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://bmqoi6gpmfjoc" path="res://scenes/player/player.tscn" id="2_x42e6"]
-[ext_resource type="PackedScene" uid="uid://d00p0a00l6411" path="res://scenes/enemies/boss.tscn" id="3_6761a"]
+[ext_resource type="PackedScene" uid="uid://ywntb6xsvqg4" path="res://scenes/enemies/boss.tscn" id="3_6761a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
 size = Vector2(1461, 112.5)

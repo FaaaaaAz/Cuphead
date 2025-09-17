@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://qdfeaa4cwkh7" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Shmup Tutorial.png" id="29_5o1f1"]
 [ext_resource type="Script" uid="uid://bsp2ffmw8tqv2" path="res://scripts/world/shump_tutorial.gd" id="30_1dyvq"]
 [ext_resource type="Texture2D" uid="uid://ctr7f276ce8b" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Floral Fury.png" id="30_jjfcv"]
-[ext_resource type="PackedScene" uid="uid://dkdi0pvfkkcpj" path="res://scenes/player/map_player.tscn" id="31_wusjf"]
+[ext_resource type="PackedScene" uid="uid://bhnhhdc3m7qg2" path="res://scenes/player/map_player.tscn" id="31_wusjf"]
 [ext_resource type="Script" uid="uid://di4c7pyckb0w3" path="res://scripts/world/floral_fury.gd" id="31_xeeh3"]
 [ext_resource type="Script" uid="uid://ctpc8270q8tfi" path="res://scripts/world/level_entranceFF.gd" id="33_d14v3"]
 [ext_resource type="Texture2D" uid="uid://d35x057vk8oba" path="res://assets/art/level/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Miscellaneous - Mugshots.png" id="36_5o1f1"]
