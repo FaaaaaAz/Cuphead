@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://upxghxgarp8u"
+path="res://.godot/imported/04. Tutorial.mp3-7876083be3e2f4b08ac7e77e65688e1f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/04. Tutorial.mp3"
+dest_files=["res://.godot/imported/04. Tutorial.mp3-7876083be3e2f4b08ac7e77e65688e1f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

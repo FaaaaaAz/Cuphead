@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cc4q18x06r6vb"
+path="res://.godot/imported/56. Closing Credits.mp3-755cd9e45d35de7059bb89d509013aa7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/56. Closing Credits.mp3"
+dest_files=["res://.godot/imported/56. Closing Credits.mp3-755cd9e45d35de7059bb89d509013aa7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
