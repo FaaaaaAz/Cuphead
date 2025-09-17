@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4cm1qftws3ye"]
+
+[ext_resource type="Script" path="res://scripts/ui/cinematic_base.gd" id="1_8vnkl"]
+[ext_resource type="Texture2D" uid="uid://di5feyv3svin0" path="res://assets/art/pages_history/4.png" id="1_n6yrr"]
+
+[node name="Cinematic4" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_8vnkl")
+next_scene_path = "res://scenes/ui/cinematic5.tscn"
+
+[node name="CinematicImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1_n6yrr")
+expand_mode = 1
+stretch_mode = 5

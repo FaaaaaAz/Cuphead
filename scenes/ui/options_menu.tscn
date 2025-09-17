@@ -59,30 +59,35 @@ theme_override_constants/separation = 15
 
 [node name="SonidoButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
+theme_override_font_variation/variation_width = 150.0
 text = "SONIDO"
 flat = true
 
 [node name="VisualButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
+theme_override_font_variation/variation_width = 150.0
 text = "VISUAL"
 flat = true
 
 [node name="ControlesButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
+theme_override_font_variation/variation_width = 150.0
 text = "CONTROLES"
 flat = true
 
 [node name="IdiomaButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
+theme_override_font_variation/variation_width = 150.0
 text = "IDIOMA"
 flat = true
 
 [node name="VolverButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
+theme_override_font_variation/variation_width = 150.0
 text = "VOLVER"
 flat = true
