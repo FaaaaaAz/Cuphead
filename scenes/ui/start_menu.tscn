@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4k03hq0ryxlr"]
+[gd_scene load_steps=5 format=3 uid="uid://c4k03hq0ryxlr"]
 
 [ext_resource type="Texture2D" uid="uid://b1ivfimnfvo15" path="res://assets/art/menu/116313.png" id="1_irhji"]
 [ext_resource type="Script" uid="uid://uqvmntoda5mi" path="res://scripts/menu/start_menu.gd" id="2_script"]
@@ -14,7 +14,7 @@ scale_max = 0.3
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(0, 0, 0, 0)
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -585,8 +585,7 @@ script = ExtResource("1_dovo2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.539063, 0.570313)
 sprite_frames = SubResource("SpriteFrames_ioxgp")
-animation = &"run_shooting_diagonal_up"
-frame_progress = 0.119895
+animation = &"aim_diagonal_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_lvxji")

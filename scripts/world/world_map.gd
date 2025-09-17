@@ -6,6 +6,7 @@ extends Node2D
 @onready var home: AnimatedSprite2D = $Home
 @onready var ruse_of_an_ooze: AnimatedSprite2D = $RuseOfAnOoze
 @onready var shump_tutorial: AnimatedSprite2D = $ShumpTutorial
+@onready var floral_fury: AnimatedSprite2D = $FloralFury
 
 func _ready() -> void:
 	start_all_animations()
@@ -18,3 +19,4 @@ func start_all_animations() -> void:
 	if home: home.play()
 	if ruse_of_an_ooze: ruse_of_an_ooze.play()
 	if shump_tutorial: shump_tutorial.play()
+	if floral_fury: floral_fury.play()
