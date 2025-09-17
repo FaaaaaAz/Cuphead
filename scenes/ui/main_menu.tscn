@@ -164,6 +164,7 @@ frame_progress = 0.94043
 script = ExtResource("36_qpknu")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 382.0
 offset_top = 573.0
 offset_right = 784.0

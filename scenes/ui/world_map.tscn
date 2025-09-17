@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dui5sycb35xbs"]
+[gd_scene load_steps=60 format=3 uid="uid://dui5sycb35xbs"]
 
 [ext_resource type="Texture2D" uid="uid://bwkc37cud0sli" path="res://assets/art/world/Ocean/Left/world1_ocean_01.png" id="1_lwrri"]
 [ext_resource type="Texture2D" uid="uid://ck51ls0wq4wwo" path="res://assets/art/world/Small Island/Lighthouse & Bouy/world1_lighthouse.png" id="2_knalu"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://cm5m80lafkqs" path="res://scripts/world/ruse_of_an_ooze.gd" id="28_d14v3"]
 [ext_resource type="Texture2D" uid="uid://qdfeaa4cwkh7" path="res://assets/art/world/objects/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Overworld - Shmup Tutorial.png" id="29_5o1f1"]
 [ext_resource type="Script" uid="uid://bsp2ffmw8tqv2" path="res://scripts/world/shump_tutorial.gd" id="30_1dyvq"]
+[ext_resource type="PackedScene" uid="uid://dkdi0pvfkkcpj" path="res://scenes/player/map_player.tscn" id="31_wusjf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pm5rc"]
 atlas = ExtResource("19_ce2n8")
@@ -80,35 +81,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 2.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rrlh5"]
-atlas = ExtResource("23_wusjf")
-region = Rect2(5, 6, 270, 349)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s53ck"]
-atlas = ExtResource("23_wusjf")
-region = Rect2(283, 6, 270, 349)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xs0m8"]
-atlas = ExtResource("23_wusjf")
-region = Rect2(561, 6, 270, 349)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_10qst"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rrlh5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s53ck")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xs0m8")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ja7wy"]
@@ -184,139 +156,213 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrlh5"]
+atlas = ExtResource("23_wusjf")
+region = Rect2(5, 6, 270, 349)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s53ck"]
+atlas = ExtResource("23_wusjf")
+region = Rect2(283, 6, 270, 349)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs0m8"]
+atlas = ExtResource("23_wusjf")
+region = Rect2(561, 6, 270, 349)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10qst"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrlh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s53ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs0m8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wusjf"]
+a = Vector2(-222, 87)
+b = Vector2(20, 88)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b4gci"]
+a = Vector2(110, 76)
+b = Vector2(-102, 73)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qpvw7"]
+a = Vector2(445, 367)
+b = Vector2(657, 450)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jjfcv"]
+a = Vector2(461, 250)
+b = Vector2(429, 326)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xeeh3"]
+a = Vector2(-529, -76)
+b = Vector2(-547, 49)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d14v3"]
+a = Vector2(340, 123)
+b = Vector2(130, 14)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5o1f1"]
+a = Vector2(233, 58)
+b = Vector2(24, 59)
+
 [node name="WorldMap" type="Node2D"]
 
 [node name="World1Ocean01" type="Sprite2D" parent="."]
 position = Vector2(734, 562)
 scale = Vector2(0.942407, 0.80127)
 texture = ExtResource("1_lwrri")
+metadata/_edit_lock_ = true
 
 [node name="World1Lighthouse" type="Sprite2D" parent="."]
 position = Vector2(131, 98)
 texture = ExtResource("2_knalu")
+metadata/_edit_lock_ = true
 
 [node name="World1Buoy" type="Sprite2D" parent="."]
 position = Vector2(-37, 325)
 texture = ExtResource("3_ky35c")
+metadata/_edit_lock_ = true
 
 [node name="World1SmallIslandMain" type="Sprite2D" parent="."]
 position = Vector2(678.5, 436)
 scale = Vector2(0.849838, 0.728477)
 texture = ExtResource("4_ce2n8")
+metadata/_edit_lock_ = true
 
 [node name="World1Boat" type="Sprite2D" parent="."]
 position = Vector2(249, 713)
 texture = ExtResource("5_6qcik")
+metadata/_edit_lock_ = true
 
 [node name="World1Dock" type="Sprite2D" parent="."]
 position = Vector2(340.25, 703.25)
 scale = Vector2(0.828947, 0.741304)
 texture = ExtResource("6_lc3nf")
+metadata/_edit_lock_ = true
 
 [node name="World1Ocean02" type="Sprite2D" parent="."]
 position = Vector2(2457, 562)
 scale = Vector2(0.923931, 0.800781)
 texture = ExtResource("7_pm5rc")
+metadata/_edit_lock_ = true
 
 [node name="World1LargeIslandMain01" type="Sprite2D" parent="."]
 position = Vector2(1685.5, 475.5)
 scale = Vector2(0.841129, 0.722399)
 texture = ExtResource("8_5rtui")
+metadata/_edit_lock_ = true
 
 [node name="World1LargeIslandTopShopSmallCliff" type="Sprite2D" parent="."]
 position = Vector2(2970, 698)
 texture = ExtResource("9_c8aku")
+metadata/_edit_lock_ = true
 
 [node name="World1BridgeMain" type="Sprite2D" parent="."]
 position = Vector2(1242.75, 503)
 scale = Vector2(0.780263, 0.615789)
 texture = ExtResource("10_dp141")
+metadata/_edit_lock_ = true
 
 [node name="World1TreeIsland" type="Sprite2D" parent="."]
 position = Vector2(1938, 1115)
 scale = Vector2(0.889285, 0.928241)
 texture = ExtResource("11_25gi8")
+metadata/_edit_lock_ = true
 
 [node name="World1StairsVeggie" type="Sprite2D" parent="."]
 position = Vector2(1691, 886)
 scale = Vector2(0.624214, 0.546407)
 texture = ExtResource("12_55l4l")
+metadata/_edit_lock_ = true
 
 [node name="World1BridgeLevel1-1" type="Sprite2D" parent="."]
 position = Vector2(1879.63, 414.125)
 scale = Vector2(0.878178, 0.599765)
 texture = ExtResource("13_opa0q")
+metadata/_edit_lock_ = true
 
 [node name="World1StairsSlime" type="Sprite2D" parent="."]
 position = Vector2(1600, 145)
 scale = Vector2(0.705479, 0.668803)
 texture = ExtResource("14_wusjf")
+metadata/_edit_lock_ = true
 
 [node name="World1LargeIslandMain02" type="Sprite2D" parent="."]
 position = Vector2(2722.25, 491)
 scale = Vector2(0.833468, 0.720165)
 texture = ExtResource("15_b4gci")
+metadata/_edit_lock_ = true
 
 [node name="World1BridgeFrogs" type="Sprite2D" parent="."]
 position = Vector2(2161.5, 761)
 scale = Vector2(0.603571, 0.538461)
 texture = ExtResource("16_qpvw7")
+metadata/_edit_lock_ = true
 
 [node name="World1StairsLevel1-2" type="Sprite2D" parent="."]
 position = Vector2(2192, 334)
 scale = Vector2(0.556452, 0.483728)
 texture = ExtResource("17_jjfcv")
+metadata/_edit_lock_ = true
 
 [node name="World1BridgeLevel1-2" type="Sprite2D" parent="."]
 position = Vector2(2379, -6.5)
 scale = Vector2(0.745762, 0.474178)
 texture = ExtResource("13_opa0q")
+metadata/_edit_lock_ = true
 
 [node name="World1StairsSlime2" type="Sprite2D" parent="."]
 position = Vector2(2648.25, 128.875)
 scale = Vector2(0.818493, 0.651709)
 texture = ExtResource("14_wusjf")
+metadata/_edit_lock_ = true
 
 [node name="World1StairsKingDice" type="Sprite2D" parent="."]
 position = Vector2(2797.38, 527.188)
 scale = Vector2(0.57887, 0.554144)
 texture = ExtResource("18_xeeh3")
+metadata/_edit_lock_ = true
 
 [node name="Shop" type="AnimatedSprite2D" parent="."]
 position = Vector2(1816, 547.733)
 scale = Vector2(0.790514, 0.678434)
 sprite_frames = SubResource("SpriteFrames_dp141")
 animation = &"new_animation"
-frame_progress = 0.675207
+frame_progress = 0.298242
 script = ExtResource("20_6qcik")
+metadata/_edit_lock_ = true
 
 [node name="BotanicPanic" type="AnimatedSprite2D" parent="."]
 position = Vector2(1407, 865.5)
 scale = Vector2(0.710098, 0.636719)
 sprite_frames = SubResource("SpriteFrames_wusjf")
-frame_progress = 0.320347
+frame_progress = 0.131868
 script = ExtResource("22_opa0q")
-
-[node name="Home" type="AnimatedSprite2D" parent="."]
-position = Vector2(529.5, 257.5)
-scale = Vector2(0.855555, 0.753582)
-sprite_frames = SubResource("SpriteFrames_10qst")
-frame_progress = 0.495733
-script = ExtResource("24_b4gci")
+metadata/_edit_lock_ = true
 
 [node name="ClipJointCalamity" type="AnimatedSprite2D" parent="."]
 position = Vector2(1747, 1108)
 scale = Vector2(0.742857, 0.686956)
 sprite_frames = SubResource("SpriteFrames_suta3")
-frame_progress = 0.305897
+frame_progress = 0.334658
 script = ExtResource("26_jjfcv")
+metadata/_edit_lock_ = true
 
 [node name="RuseOfAnOoze" type="AnimatedSprite2D" parent="."]
 position = Vector2(1741, 209)
 scale = Vector2(0.701416, 0.719512)
 sprite_frames = SubResource("SpriteFrames_bt2ag")
-frame_progress = 0.846677
+frame_progress = 0.875441
 script = ExtResource("28_d14v3")
+metadata/_edit_lock_ = true
 
 [node name="ShumpTutorial" type="AnimatedSprite2D" parent="."]
 position = Vector2(2246, -92)
@@ -324,3 +370,50 @@ scale = Vector2(0.794873, 0.786885)
 sprite_frames = SubResource("SpriteFrames_jet30")
 animation = &"new_animation"
 script = ExtResource("30_1dyvq")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Home" type="AnimatedSprite2D" parent="StaticBody2D"]
+position = Vector2(529.5, 257.5)
+scale = Vector2(0.855555, 0.753582)
+sprite_frames = SubResource("SpriteFrames_10qst")
+frame_progress = 0.524496
+script = ExtResource("24_b4gci")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(694, 207)
+shape = SubResource("SegmentShape2D_wusjf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1250, 375)
+shape = SubResource("SegmentShape2D_b4gci")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_qpvw7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12, 44)
+shape = SubResource("SegmentShape2D_jjfcv")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2388, 657)
+shape = SubResource("SegmentShape2D_xeeh3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1250, 375)
+shape = SubResource("SegmentShape2D_xeeh3")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(811, 322)
+shape = SubResource("SegmentShape2D_d14v3")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1129, 478)
+shape = SubResource("SegmentShape2D_5o1f1")
+
+[node name="MapPlayer" parent="." instance=ExtResource("31_wusjf")]
+position = Vector2(581, 327)
+
+[node name="Camera2D" type="Camera2D" parent="MapPlayer"]
