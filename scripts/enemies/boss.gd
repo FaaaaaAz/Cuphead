@@ -25,6 +25,7 @@ var facing_right: bool = false  # Iniciar mirando hacia la izquierda
 var intro_finished: bool = false
 var attack_pattern_index: int = 0  # Para alternar entre face_attack y firing_seeds
 var attack_patterns: Array[String] = ["face_attack", "firing_seeds"]
+var is_in_final_phase: bool = false  # Cambiar a true cuando la vida sea ≤ 30%
 
 # Referencias a nodos
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -157,13 +158,19 @@ func update_animation() -> void:
 			if animated_sprite.animation != "intro":
 				animated_sprite.play("intro")
 		State.IDLE:
-			if animated_sprite.animation != "idle":
+			# Verificar si está en fase final (30% de vida o menos)
+			if is_in_final_phase and animated_sprite.animation != "final_idle":
+				animated_sprite.play("final_idle")
+			elif not is_in_final_phase and animated_sprite.animation != "idle":
 				animated_sprite.play("idle")
 		State.ATTACKING:
 			# No cambiar animación aquí - se maneja en perform_attack()
 			pass
 		State.HURT:
-			if animated_sprite.animation != "idle":
+			# En la fase final, mantener final_idle incluso al recibir daño
+			if is_in_final_phase and animated_sprite.animation != "final_idle":
+				animated_sprite.play("final_idle")
+			elif not is_in_final_phase and animated_sprite.animation != "idle":
 				animated_sprite.play("idle")
 		State.DEAD:
 			if animated_sprite.animation != "death":
@@ -204,6 +211,12 @@ func take_damage(damage: int) -> void:
 		return
 	
 	health -= damage
+	
+	# Verificar si entró en la fase final (30% de vida o menos)
+	var health_percentage = float(health) / float(max_health) * 100.0
+	if health_percentage <= 30.0 and not is_in_final_phase:
+		is_in_final_phase = true
+		print("¡Boss entró en fase final! Vida: ", health, "/", max_health, " (", health_percentage, "%)")
 	
 	print("Boss recibió ", damage, " de daño. Vida restante: ", health, " | Estado actual: ", current_state)
 	

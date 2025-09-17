@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0uhlmvy4k7ri"]
+[gd_scene load_steps=8 format=3 uid="uid://einx0xywacma"]
 
 [ext_resource type="Texture2D" uid="uid://0nmkmd0sojhm" path="res://assets/art/level/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Boss Stages - Ruse of an Ooze.png" id="1_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://bmqoi6gpmfjoc" path="res://scenes/player/player.tscn" id="2_x42e6"]
@@ -86,7 +86,7 @@ region_rect = Rect2(5.88297, 273.346, 1490.23, 877.365)
 metadata/_edit_lock_ = true
 
 [node name="Boss" parent="Environment/ParallaxBackground" instance=ExtResource("3_6761a")]
-position = Vector2(1025, 477)
+position = Vector2(1023, 399)
 
 [node name="Player" parent="Environment/ParallaxBackground" instance=ExtResource("2_x42e6")]
 position = Vector2(198, 493)

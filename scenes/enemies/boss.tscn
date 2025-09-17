@@ -603,7 +603,7 @@ script = ExtResource("1_3uc6t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cagney_idle")
-animation = &"death"
+animation = &"final_idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
