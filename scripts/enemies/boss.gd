@@ -21,6 +21,7 @@ var facing_right: bool = false
 var intro_finished: bool = false
 var attack_pattern_index: int = 0
 var attack_patterns: Array[String] = ["face_attack", "firing_seeds"]
+var is_in_final_phase: bool = false  # Cambiar a true cuando la vida sea ≤ 30%
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -108,12 +109,18 @@ func update_animation() -> void:
 			if animated_sprite.animation != "intro":
 				animated_sprite.play("intro")
 		State.IDLE:
-			if animated_sprite.animation != "idle":
+			# Verificar si está en fase final (30% de vida o menos)
+			if is_in_final_phase and animated_sprite.animation != "final_idle":
+				animated_sprite.play("final_idle")
+			elif not is_in_final_phase and animated_sprite.animation != "idle":
 				animated_sprite.play("idle")
 		State.ATTACKING:
 			pass
 		State.HURT:
-			if animated_sprite.animation != "idle":
+			# En la fase final, mantener final_idle incluso al recibir daño
+			if is_in_final_phase and animated_sprite.animation != "final_idle":
+				animated_sprite.play("final_idle")
+			elif not is_in_final_phase and animated_sprite.animation != "idle":
 				animated_sprite.play("idle")
 		State.DEAD:
 			if animated_sprite.animation != "death":
