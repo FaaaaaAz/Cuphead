@@ -8,6 +8,7 @@ func _ready() -> void:
 	print("=== MAIN MENU INICIADO ===")
 	print("Nodo tipo: ", get_class())
 	print("Nombre del nodo: ", name)
+	MusicPlayer.play_music("menu_theme")
 	
 	if characters:
 		characters.play()
