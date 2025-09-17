@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://j3h30n5ivor4"]
 
 [ext_resource type="Script" uid="uid://c8idaakjsixf5" path="res://scripts/player/player_bullet.gd" id="1_2kcj1"]
-[ext_resource type="Texture2D" path="res://assets/art/Level_1/duck_shot/1.png" id="1_altju"]
+[ext_resource type="Texture2D" uid="uid://0vpl7ot02rjj" path="res://assets/art/Level_1/duck_shot/1.png" id="1_altju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kcj1"]
 size = Vector2(32, 20)
@@ -12,7 +12,6 @@ collision_mask = 2
 script = ExtResource("1_2kcj1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_altju")
 
