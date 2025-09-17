@@ -1,0 +1,142 @@
+[gd_scene load_steps=21 format=3 uid="uid://n3so7e22c1ni"]
+
+[ext_resource type="Script" uid="uid://be7hd5jdv4lm7" path="res://scripts/core/scene_transition.gd" id="1_kq3v3"]
+[ext_resource type="Texture2D" uid="uid://cqdjbbvk6uxsg" path="res://assets/art/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Miscellaneous - Iris Transition.png" id="2_8hbrc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fn7l"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(0, 0, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b87mi"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(514, 0, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lslp"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(1028, 0, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0nrn"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(0, 290, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h03yp"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(514, 290, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s06m"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(1028, 290, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyd35"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(0, 580, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5540q"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(514, 580, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2qrs"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(1028, 580, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq3tm"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(0, 870, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uyt5"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(514, 870, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0c2x"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(1028, 870, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01kjq"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(0, 1160, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr7s0"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(514, 1160, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpcl7"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(1028, 1160, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc1fs"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(0, 1450, 514, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rwa5"]
+atlas = ExtResource("2_8hbrc")
+region = Rect2(514, 1450, 514, 290)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_etvfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fn7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b87mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lslp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0nrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h03yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s06m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyd35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5540q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2qrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq3tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uyt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0c2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01kjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr7s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpcl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc1fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rwa5")
+}],
+"loop": false,
+"name": &"close",
+"speed": 8.0
+}]
+
+[node name="SceneTransition" type="CanvasLayer"]
+script = ExtResource("1_kq3v3")
+
+[node name="TransitionSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(579.5, 327)
+scale = Vector2(2.22763, 2.21379)
+sprite_frames = SubResource("SpriteFrames_etvfq")
+animation = &"close"
+frame = 16
+frame_progress = 1.0

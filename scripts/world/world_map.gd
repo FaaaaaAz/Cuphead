@@ -10,7 +10,7 @@ extends Node2D
 
 func _ready() -> void:
 	start_all_animations()
-	MusicPlayer.force_play_music("map_theme")
+	MusicPlayer.play_music("map_theme")  # Usar play_music en lugar de force_play_music
 
 func start_all_animations() -> void:
 	if shop: shop.play()

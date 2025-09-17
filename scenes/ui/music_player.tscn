@@ -6,3 +6,5 @@
 script = ExtResource("1_vm20o")
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXStreamPlayer" type="AudioStreamPlayer" parent="."]
