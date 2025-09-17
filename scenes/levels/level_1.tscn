@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://0uhlmvy4k7ri"]
+[gd_scene load_steps=8 format=3 uid="uid://0uhlmvy4k7ri"]
 
-[ext_resource type="Texture2D" uid="uid://ds6mqkvdo61nf" path="res://icon.svg" id="1_nsrm0"]
+[ext_resource type="Texture2D" uid="uid://0nmkmd0sojhm" path="res://assets/art/level/PC _ Computer - Cuphead_ Don't Deal With the Devil! - Boss Stages - Ruse of an Ooze.png" id="1_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://bmqoi6gpmfjoc" path="res://scenes/player/player.tscn" id="2_x42e6"]
 [ext_resource type="PackedScene" uid="uid://d00p0a00l6411" path="res://scenes/enemies/boss.tscn" id="3_6761a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
-size = Vector2(1150.5, 99)
+size = Vector2(1461, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsrm0"]
+size = Vector2(135, 562)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x42e6"]
+size = Vector2(169.5, 695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6761a"]
+size = Vector2(1330, 115)
 
 [node name="Level1" type="Node2D"]
 position = Vector2(4, 14)
@@ -15,16 +24,109 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(579.75, 598.5)
+position = Vector2(591.5, 594)
 shape = SubResource("RectangleShape2D_sk5k4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Ground"]
-position = Vector2(577.75, 600.5)
-scale = Vector2(8.98828, 0.773437)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-72, 266)
+shape = SubResource("RectangleShape2D_nsrm0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1234.25, 220.5)
+shape = SubResource("RectangleShape2D_x42e6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(526, -70)
+shape = SubResource("RectangleShape2D_6761a")
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Environment"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer"]
+position = Vector2(585.5, 233)
+scale = Vector2(0.830389, 0.878136)
 texture = ExtResource("1_nsrm0")
+region_enabled = true
+region_rect = Rect2(1503.6, 263.32, 1415.23, 558.836)
+metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_x42e6")]
-position = Vector2(167, 537)
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
 
-[node name="Boss" parent="." instance=ExtResource("3_6761a")]
-position = Vector2(1046, 484)
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(561.75, 257.688)
+scale = Vector2(0.826289, 1.03149)
+texture = ExtResource("1_nsrm0")
+region_enabled = true
+region_rect = Rect2(1457.07, 1237.58, 1396.69, 393.524)
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer3"]
+position = Vector2(571, 272)
+scale = Vector2(0.80634, 0.912752)
+texture = ExtResource("1_nsrm0")
+region_enabled = true
+region_rect = Rect2(6.46938, 1233.93, 1451.52, 596.737)
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer4"]
+position = Vector2(573.438, 320)
+scale = Vector2(0.81401, 0.761688)
+texture = ExtResource("1_nsrm0")
+region_enabled = true
+region_rect = Rect2(5.88297, 273.346, 1490.23, 877.365)
+metadata/_edit_lock_ = true
+
+[node name="Boss" parent="Environment/ParallaxBackground" instance=ExtResource("3_6761a")]
+position = Vector2(977, 459)
+
+[node name="Player" parent="Environment/ParallaxBackground" instance=ExtResource("2_x42e6")]
+position = Vector2(161, 483)
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer5"]
+position = Vector2(934.25, 552)
+scale = Vector2(0.474671, 0.666667)
+texture = ExtResource("1_nsrm0")
+region_enabled = true
+region_rect = Rect2(12.0994, 1849.01, 987.036, 312.884)
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer6"]
+position = Vector2(256.125, 582)
+scale = Vector2(0.810131, 0.585365)
+texture = ExtResource("1_nsrm0")
+region_enabled = true
+region_rect = Rect2(2864.84, 1244.05, 686.213, 246.766)
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer7"]
+position = Vector2(76.875, 108.25)
+scale = Vector2(0.829295, 0.744048)
+texture = ExtResource("1_nsrm0")
+region_enabled = true
+region_rect = Rect2(2664.44, 6.75458, 227.611, 252.4)
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="Environment/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/ParallaxBackground/ParallaxLayer8"]
+position = Vector2(1069, 87)
+scale = Vector2(0.937008, 0.825397)
+texture = ExtResource("1_nsrm0")
+region_enabled = true
+region_rect = Rect2(2905.65, 13.1911, 254.654, 252.4)
+metadata/_edit_lock_ = true
