@@ -12,6 +12,9 @@ var menu_items = []
 func _ready():
 	print("=== INICIANDO START MENU ===")
 	
+	# Reproducir música del menú
+	MusicPlayer.play_music("menu_theme")
+	
 	# Verificar que los nodos existen ANTES de agregarlos al array
 	print("Verificando nodos...")
 	print("StartButton existe: ", start_button != null)

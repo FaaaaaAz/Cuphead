@@ -1,5 +1,6 @@
-[gd_scene load_steps=60 format=3 uid="uid://dui5sycb35xbs"]
+[gd_scene load_steps=61 format=3 uid="uid://dui5sycb35xbs"]
 
+[ext_resource type="Script" uid="uid://bdwphdxmrxj8n" path="res://scripts/world/world_map.gd" id="1_b4gci"]
 [ext_resource type="Texture2D" uid="uid://bwkc37cud0sli" path="res://assets/art/world/Ocean/Left/world1_ocean_01.png" id="1_lwrri"]
 [ext_resource type="Texture2D" uid="uid://ck51ls0wq4wwo" path="res://assets/art/world/Small Island/Lighthouse & Bouy/world1_lighthouse.png" id="2_knalu"]
 [ext_resource type="Texture2D" uid="uid://fdftyxaq82x6" path="res://assets/art/world/Small Island/Lighthouse & Bouy/world1_buoy.png" id="3_ky35c"]
@@ -214,6 +215,7 @@ a = Vector2(233, 58)
 b = Vector2(24, 59)
 
 [node name="WorldMap" type="Node2D"]
+script = ExtResource("1_b4gci")
 
 [node name="World1Ocean01" type="Sprite2D" parent="."]
 position = Vector2(734, 562)

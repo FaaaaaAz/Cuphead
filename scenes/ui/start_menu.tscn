@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4k03hq0ryxlr"]
 
 [ext_resource type="Texture2D" uid="uid://b1ivfimnfvo15" path="res://assets/art/menu/116313.png" id="1_irhji"]
-[ext_resource type="Script" path="res://scripts/menu/start_menu.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://uqvmntoda5mi" path="res://scripts/menu/start_menu.gd" id="2_script"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1"]
 direction = Vector3(0, -1, 0)
