@@ -372,15 +372,15 @@ animation = &"new_animation"
 script = ExtResource("30_1dyvq")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Home" type="AnimatedSprite2D" parent="StaticBody2D"]
+[node name="Home" type="AnimatedSprite2D" parent="."]
 position = Vector2(529.5, 257.5)
 scale = Vector2(0.855555, 0.753582)
 sprite_frames = SubResource("SpriteFrames_10qst")
 frame_progress = 0.524496
 script = ExtResource("24_b4gci")
 metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(694, 207)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk5j3vr8qh123"]
+[gd_scene load_steps=6 format=3 uid="uid://c4k03hq0ryxlr"]
 
 [ext_resource type="Texture2D" uid="uid://b1ivfimnfvo15" path="res://assets/art/menu/116313.png" id="1_irhji"]
 [ext_resource type="Script" path="res://scripts/menu/start_menu.gd" id="2_script"]
@@ -18,13 +18,13 @@ default_font_size = 32
 bg_color = Color(0, 0, 0, 0)
 
 [node name="MainMenu" type="Control"]
-script = ExtResource("2_script")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_script")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
