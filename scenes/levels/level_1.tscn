@@ -19,8 +19,8 @@ position = Vector2(579.75, 598.5)
 shape = SubResource("RectangleShape2D_sk5k4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
-position = Vector2(577.75, 600)
-scale = Vector2(8.98828, 0.78125)
+position = Vector2(577.75, 600.5)
+scale = Vector2(8.98828, 0.773437)
 texture = ExtResource("1_nsrm0")
 
 [node name="Player" parent="." instance=ExtResource("2_x42e6")]

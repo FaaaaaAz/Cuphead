@@ -14,7 +14,7 @@ const BULLET_SCENE = preload("res://scenes/player/player_bullet.tscn")
 
 # Variables de dash
 @export var dash_distance: float = 200.0
-@export var dash_duration: float = 0.15
+@export var dash_duration: float = 0.25  # Aumentado para ver mejor la animación
 @export var dash_cooldown: float = 1.0
 @export var dash_invincibility_time: float = 0.2
 
@@ -29,6 +29,9 @@ var shoot_timer: float = 0.0
 # Variables para el sistema de disparo en 8 direcciones
 var is_crouching: bool = false
 var shoot_direction: Vector2 = Vector2.RIGHT
+var is_shooting: bool = false
+var shoot_animation_timer: float = 0.0
+var shoot_animation_duration: float = 0.2  # Duración de la animación de disparo
 
 # Variables para el sistema de dash
 var is_dashing: bool = false
@@ -39,7 +42,7 @@ var dash_direction: Vector2 = Vector2.ZERO
 var dash_speed: float = 0.0
 
 # Referencias a nodos (se configurarán en Godot)
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var invincibility_timer: Timer = $InvincibilityTimer
 @onready var muzzle: Marker2D = $Muzzle
@@ -89,6 +92,12 @@ func _input(event: InputEvent) -> void:
 	# Detectar disparo cuando se hace clic
 	if event.is_action_pressed("shoot") and can_shoot and not is_dead:
 		print("=== DISPARO DETECTADO ===")
+		# Debug adicional para verificar las teclas presionadas
+		var w_pressed = Input.is_action_pressed("move_up")
+		var s_pressed = Input.is_action_pressed("move_down") 
+		var a_pressed = Input.is_action_pressed("move_left")
+		var d_pressed = Input.is_action_pressed("move_right")
+		print("Teclas presionadas al disparar - W:", w_pressed, " A:", a_pressed, " S:", s_pressed, " D:", d_pressed)
 		calculate_shoot_direction()
 		shoot()
 	# Detectar dash
@@ -114,6 +123,12 @@ func _physics_process(delta: float) -> void:
 		if shoot_timer <= 0:
 			can_shoot = true
 	
+	# Actualizar timer de animación de disparo
+	if is_shooting:
+		shoot_animation_timer -= delta
+		if shoot_animation_timer <= 0:
+			is_shooting = false
+	
 	# Actualizar timers de dash
 	update_dash_timers(delta)
 	
@@ -123,10 +138,20 @@ func _physics_process(delta: float) -> void:
 		return  # No procesar movimiento normal durante el dash
 	
 	# Detectar si está agachado (solo si no está dasheando)
+	var was_crouching = is_crouching
 	is_crouching = Input.is_action_pressed("crouch") and is_on_floor()
+	
+	# Debug temporal para agacharse
+	if is_crouching and not was_crouching:
+		print("*** EMPEZÓ A AGACHARSE ***")
+	elif not is_crouching and was_crouching:
+		print("*** DEJÓ DE AGACHARSE ***")
 	
 	# Actualizar el estado visual del sprite
 	update_sprite_state()
+	
+	# Actualizar animaciones
+	update_animations()
 	
 	# 1. Aplicar gravedad
 	if not is_on_floor():
@@ -135,6 +160,7 @@ func _physics_process(delta: float) -> void:
 	# 2. Manejar salto (no puede saltar si está agachado)
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_crouching:
 		velocity.y = jump_velocity
+		print("*** SALTO ACTIVADO - Velocidad Y: ", jump_velocity, " ***")
 
 	# 3. Manejar movimiento horizontal (más lento si está agachado)
 	var direction: float = Input.get_axis("move_left", "move_right")
@@ -170,11 +196,64 @@ func update_sprite_state() -> void:
 	if not sprite:
 		return
 	
-	# Cambiar escala Y para simular agacharse
-	if is_crouching:
-		sprite.scale.y = 0.7  # Más bajo cuando está agachado
+	# No modificar escala durante dash para evitar conflictos con animaciones
+	if is_dashing:
+		return
+	
+	# Ya no necesitamos modificar la escala para agacharse porque 
+	# tenemos animaciones específicas (agachau_idle, agachau_shot)
+	# que ya muestran a Cuphead en la posición correcta
+	sprite.scale.y = 1.0  # Mantener escala normal siempre
+
+func update_animations() -> void:
+	"""Actualizar las animaciones del jugador"""
+	if not sprite:
+		return
+	
+	# Determinar qué animación reproducir
+	var new_animation = ""
+	var is_running = abs(velocity.x) > 0 and is_on_floor()
+	
+	if is_shooting and is_crouching:
+		# Si está disparando agachado, usar animación de disparo agachado
+		new_animation = "agachau_shot"
+		print("*** DISPARANDO AGACHADO - Animación: agachau_shot ***")
+	elif is_shooting and is_running:
+		# Si está disparando mientras corre, usar animación de correr disparando
+		new_animation = get_run_shoot_animation_name()
+		print("*** CORRIENDO Y DISPARANDO - Animación: ", new_animation, " ***")
+	elif is_shooting:
+		# Si está disparando parado, usar la animación de disparo correspondiente
+		new_animation = get_shoot_animation_name()
+		print("*** DISPARANDO PARADO - Animación: ", new_animation, " Dirección: ", shoot_direction, " ***")
+	elif is_dashing:
+		new_animation = "dash"
+		print("*** DEBERÍA MOSTRAR ANIMACIÓN DASH - is_dashing: ", is_dashing, " ***")
+	elif is_crouching:
+		new_animation = "agachau_idle"
+		print("*** AGACHÁNDOSE - Animación: agachau_idle ***")
+	elif is_running:
+		new_animation = "run"
+	elif not is_on_floor():
+		if velocity.y < 0:
+			new_animation = "jump"
+			print("*** SALTANDO - Animación: jump ***")
+		else:
+			new_animation = "fall"
+			print("*** CAYENDO - Animación: fall ***")
 	else:
-		sprite.scale.y = 1.0  # Altura normal
+		new_animation = "idle"
+	
+	# Solo cambiar animación si es diferente para evitar reiniciar constantemente
+	if sprite.animation != new_animation:
+		sprite.play(new_animation)
+		print("*** CAMBIANDO ANIMACIÓN DE '", sprite.animation, "' A '", new_animation, "' ***")
+		if new_animation == "dash":
+			print("*** REPRODUCIENDO ANIMACIÓN DASH *** - Frame actual: ", sprite.frame)
+		elif new_animation.begins_with("aim_"):
+			print("*** REPRODUCIENDO ANIMACIÓN DE DISPARO: '", new_animation, "' ***")
+		else:
+			print("Cambiando animación a: ", new_animation)
 
 # --- Sistema de Dash ---
 func update_dash_timers(delta: float) -> void:
@@ -228,6 +307,8 @@ func start_dash() -> void:
 	dash_timer = dash_duration
 	dash_cooldown_timer = dash_cooldown
 	
+	print("*** DASH ACTIVADO - is_dashing: ", is_dashing, " duración: ", dash_duration, " ***")
+	
 	# Activar invencibilidad temporal
 	if not is_invincible:
 		become_dash_invincible()
@@ -240,11 +321,9 @@ func start_dash() -> void:
 func create_dash_effect() -> void:
 	"""Crear efectos visuales del dash"""
 	if sprite:
-		# Efecto de scale durante el dash
+		# Solo efecto de color, sin cambio de escala para no interferir con animaciones
 		var tween = create_tween()
-		tween.parallel().tween_property(sprite, "scale", Vector2(1.3, 0.8), 0.05)
 		tween.parallel().tween_property(sprite, "modulate", Color(1.5, 1.5, 2.0), 0.05)
-		tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.1)
 		tween.parallel().tween_property(sprite, "modulate", Color.WHITE, 0.1)
 
 func handle_dash_movement(delta: float) -> void:
@@ -263,11 +342,11 @@ func end_dash() -> void:
 	# Reducir la velocidad gradualmente al terminar el dash
 	velocity = velocity * 0.2
 	
-	# Efecto visual del final del dash
+	# Solo efecto de color al terminar, sin cambio de escala
 	if sprite:
 		var tween = create_tween()
-		tween.tween_property(sprite, "scale", Vector2(0.9, 1.1), 0.05)
-		tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.1)
+		tween.tween_property(sprite, "modulate", Color(0.8, 0.8, 1.2), 0.05)
+		tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)
 	
 	print("Dash terminado")
 
@@ -385,6 +464,10 @@ func shoot() -> void:
 	can_shoot = false
 	shoot_timer = shoot_cooldown
 	
+	# Activar estado de disparo para animaciones
+	is_shooting = true
+	shoot_animation_timer = shoot_animation_duration
+	
 	var bullet_instance = BULLET_SCENE.instantiate()
 	get_parent().add_child(bullet_instance)
 	bullet_instance.global_position = muzzle.global_position
@@ -393,6 +476,72 @@ func shoot() -> void:
 	bullet_instance.set_direction_vector(shoot_direction)
 	
 	print("¡BALA DISPARADA! Posición: ", muzzle.global_position, " Dirección: ", shoot_direction)
+
+func get_shoot_animation_name() -> String:
+	"""Determinar el nombre de la animación de disparo basada en la dirección"""
+	var angle = shoot_direction.angle()
+	var angle_degrees = rad_to_deg(angle)
+	
+	# Normalizar el ángulo a 0-360 grados
+	if angle_degrees < 0:
+		angle_degrees += 360
+	
+	print("*** DEBUG ANIMACIÓN DISPARO ***")
+	print("Dirección: ", shoot_direction)
+	print("Ángulo radianes: ", angle)
+	print("Ángulo grados: ", angle_degrees)
+	print("Facing right: ", facing_right)
+	
+	var animation_name = ""
+	
+	# Determinar la animación basada en el ángulo (corregido)
+	if angle_degrees >= 337.5 or angle_degrees < 22.5:  # Derecha (0°)
+		animation_name = "aim_straight"
+	elif angle_degrees >= 22.5 and angle_degrees < 67.5:  # Diagonal abajo-derecha (45°)
+		animation_name = "aim_diagonal_down"
+	elif angle_degrees >= 67.5 and angle_degrees < 112.5:  # Abajo (90°)
+		animation_name = "aim_down"
+	elif angle_degrees >= 112.5 and angle_degrees < 157.5:  # Diagonal abajo-izquierda (135°)
+		animation_name = "aim_diagonal_down"
+	elif angle_degrees >= 157.5 and angle_degrees < 202.5:  # Izquierda (180°)
+		animation_name = "aim_straight"
+	elif angle_degrees >= 202.5 and angle_degrees < 247.5:  # Diagonal arriba-izquierda (225°)
+		animation_name = "aim_diagonal_up"
+	elif angle_degrees >= 247.5 and angle_degrees < 292.5:  # Arriba (270°)
+		animation_name = "aim_up"
+	elif angle_degrees >= 292.5 and angle_degrees < 337.5:  # Diagonal arriba-derecha (315°)
+		animation_name = "aim_diagonal_up"
+	else:
+		animation_name = "aim_straight"  # Por defecto
+	
+	print("Animación seleccionada: ", animation_name)
+	print("*** FIN DEBUG ANIMACIÓN DISPARO ***")
+	
+	return animation_name
+
+func get_run_shoot_animation_name() -> String:
+	"""Determinar el nombre de la animación de correr y disparar basada en la dirección"""
+	var angle = shoot_direction.angle()
+	var angle_degrees = rad_to_deg(angle)
+	
+	# Normalizar el ángulo a 0-360 grados
+	if angle_degrees < 0:
+		angle_degrees += 360
+	
+	print("*** DEBUG RUN SHOOT - Ángulo: ", angle_degrees, " Dirección: ", shoot_direction, " ***")
+	
+	# Clasificar en tres categorías principales para correr y disparar (corregido):
+	# Hacia arriba: 225° a 315° (incluye diagonal arriba-izq, arriba, diagonal arriba-der)
+	if angle_degrees >= 225 and angle_degrees < 315:  
+		print("*** Ángulo: ", angle_degrees, " -> run_shooting_diagonal_up ***")
+		return "run_shooting_diagonal_up"
+	# Hacia abajo: 45° a 135° (incluye diagonal abajo-der, abajo, diagonal abajo-izq)  
+	elif angle_degrees >= 45 and angle_degrees < 135:  
+		print("*** Ángulo: ", angle_degrees, " -> run_shooting_diagonal_down ***")
+		return "run_shooting_diagonal_down"  # Nota: esta animación no está cargada aún
+	else:  # Horizontal (derecha 315°-45°, izquierda 135°-225°)
+		print("*** Ángulo: ", angle_degrees, " -> run_shooting_straight ***")
+		return "run_shooting_straight"
 
 func calculate_shoot_direction() -> void:
 	"""Calcular la dirección de disparo basada en el input del jugador"""
@@ -414,8 +563,14 @@ func calculate_shoot_direction() -> void:
 		# Si ambas están presionadas, usar la dirección que está mirando
 		direction.x = 1 if facing_right else -1
 	else:
-		# Si no hay input horizontal, usar la dirección que está mirando
-		direction.x = 1 if facing_right else -1
+		# Si solo se presiona arriba o abajo, no añadir componente horizontal
+		if up_pressed and not down_pressed:
+			direction.x = 0  # Disparo puro hacia arriba
+		elif down_pressed and not up_pressed:
+			direction.x = 0  # Disparo puro hacia abajo
+		else:
+			# Si no hay input vertical, usar la dirección que está mirando
+			direction.x = 1 if facing_right else -1
 	
 	# Determinar dirección vertical
 	if up_pressed and not down_pressed:
@@ -423,8 +578,8 @@ func calculate_shoot_direction() -> void:
 	elif down_pressed and not up_pressed:
 		direction.y = 1   # Hacia abajo
 	elif is_crouching:
-		# Si está agachado pero no hay input vertical, disparar en diagonal hacia abajo
-		direction.y = 0.5
+		# Si está agachado pero no hay input vertical, disparar recto horizontalmente
+		direction.y = 0
 	else:
 		# Sin input vertical, disparar recto
 		direction.y = 0
