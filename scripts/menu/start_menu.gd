@@ -88,17 +88,20 @@ func _on_button_pressed(button_index: int):
 	
 	match button_index:
 		0: # Start Game
-			print("🚀 CASO 0: Iniciando juego - Cambiando a world_map")
-			var world_map_path = "res://scenes/ui/world_map.tscn"
-			print("Verificando si existe: ", world_map_path)
-			print("Archivo existe: ", ResourceLoader.exists(world_map_path))
+			print("🚀 CASO 0: Iniciando historia - Cambiando a intro_story")
+			var story_path = "res://scenes/ui/intro_story.tscn"
+			print("Verificando si existe: ", story_path)
+			print("Archivo existe: ", ResourceLoader.exists(story_path))
 			
-			if ResourceLoader.exists(world_map_path):
-				print("✅ Archivo encontrado, cargando escena...")
-				get_tree().call_deferred("change_scene_to_file", world_map_path)
+			if ResourceLoader.exists(story_path):
+				print("✅ Archivo encontrado, cargando historia...")
+				get_tree().call_deferred("change_scene_to_file", story_path)
 				print("✅ Cambio de escena solicitado")
 			else:
-				print("❌ ERROR: No se encontró world_map.tscn")
+				print("❌ ERROR: No se encontró intro_story.tscn, yendo al world_map")
+				var world_map_path = "res://scenes/ui/world_map.tscn"
+				if ResourceLoader.exists(world_map_path):
+					get_tree().call_deferred("change_scene_to_file", world_map_path)
 		1: # Options
 			print("⚙️ CASO 1: Abriendo opciones")
 			var options_path = "res://scenes/ui/options_menu.tscn"

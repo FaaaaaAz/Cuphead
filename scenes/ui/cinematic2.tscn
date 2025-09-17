@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj2s7i8bc7200"]
+[gd_scene load_steps=3 format=3 uid="uid://0nxyr8vd7b7q"]
 
-[ext_resource type="Texture2D" uid="uid://ba5olnwvwdgbf" path="res://assets/art/pages_history/2.png" id="1_1t1pt"]
-[ext_resource type="Script" path="res://scripts/ui/cinematic_base.gd" id="1_8vnkl"]
+[ext_resource type="Texture2D" path="res://assets/art/pages_history/2.png" id="1_1t1pt"]
+[ext_resource type="Script" uid="uid://b2r4m8n7k3pq" path="res://scripts/ui/cinematic_base.gd" id="1_8vnkl"]
 
 [node name="Cinematic2" type="Control"]
 layout_mode = 3

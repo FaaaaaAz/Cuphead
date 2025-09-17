@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://f4g5h6i7j8k9l"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/story_cinematic.tscn" id="1_story_scene"]
+
+[node name="Page06_07Story" instance=ExtResource("1_story_scene")]
+auto_advance_time = 0.08
+enable_auto_advance = true
+story_folder = "res://assets/art/pages_history/Page 06-07/"
+next_scene_after_story = "res://scenes/ui/page07_08_story.tscn"
