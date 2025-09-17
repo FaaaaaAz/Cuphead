@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://f4g5h6i7j8k9l"]
+[gd_scene load_steps=2 format=3 uid="uid://b82av4lxy1pit"]
 
 [ext_resource type="PackedScene" path="res://scenes/ui/story_cinematic.tscn" id="1_story_scene"]
 
